@@ -101,3 +101,4 @@ float dist_min_right, dist_min_left, dist_min_front;
 }
 
 **the node also uses the  Server to receive the client request from the UI node**.
+the controller node also the speed of the robot via using the server 
