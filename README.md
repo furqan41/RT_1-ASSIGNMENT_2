@@ -129,3 +129,44 @@ bool serviceCallback (second_assignment::Service::Request &req, second_assignmen
 }
 
 This function also creates the server's response to the client's request; in particular, the response consists of the float containing the value of acceleration (the value of the global variable wich increment velocity).
+
+## Interface
+This  node represent the iterface of the project to user
+ it communicates with both the nodes, server and controller. It get the input by the terminal and sends a request to the server, which will provide a response still to the UI node
+ 
+   char key = 'r'; // Initialize the variable key
+
+   //While the roscore is running, execute the loop
+   while (ros::ok()) {
+
+      scanf(" %c", &key); // Read command
+      
+      if(key == 'q')
+      {
+      	ros::shutdown();
+      }
+      else if ( key == 'w' || key == 's' || key == 'r') 
+      {
+         // Valid command received
+         // Send a request to the service
+         server_srv.request.command = key;
+	 client_srv.waitForExistence();
+
+         if ( client_srv.call(server_srv) ) 
+         {
+
+            if ( key == 'r' ) 
+            {
+            	// Reset invoked
+               client_res.waitForExistence();
+               client_res.call(server_res);
+               printf("RESET\n");
+            }
+	    
+	  __MANU__  
+* w : increase speed
+* s : decrease speed
+* r : reset robot position
+* q : quit
+
+## SERVICE
