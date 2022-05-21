@@ -100,5 +100,32 @@ float dist_min_right, dist_min_left, dist_min_front;
 		pub.publish(vel);
 }
 
-**the node also uses the  Server to receive the client request from the UI node**.
-the controller node also the speed of the robot via using the server 
+**the node also implementing  the  Server to receive the client request from the UI node**.
+the controller node also the speed of the robot via the server 
+It also implements the Service.srv: taking a command from the user, it decides what will be the velocity of the robot, taking in account min and max velocities.
+
+bool serviceCallback (second_assignment::Service::Request &req, second_assignment::Service::Response &res)
+{
+	// Read actual velocity
+	if(req.command == 'w' && velocity < max_vel)
+	{
+		// Encrease velocity if velocity isn't maximal
+		velocity += 1.0;
+	}
+	else if(req.command == 's' && velocity > min_vel)
+	{
+		// Encrease velocity if velocity isn't minimal
+		velocity -= 1.0;
+	}
+	else if(req.command == 'r')
+	{
+		// Reset velocity to 1
+		velocity = 1;
+	}
+        // Set service's output
+	res.intial_velocity = velocity;
+
+	return true;
+}
+
+his function also creates the server's response to the client's request; in particular, the response consists of the float containing the value of acceleration (the value of the global variable wich increment velocity).
