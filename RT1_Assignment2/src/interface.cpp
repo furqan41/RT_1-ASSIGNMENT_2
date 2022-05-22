@@ -75,7 +75,7 @@ int main ( int argc, char ** argv ) {
             if(tmp == 0 && velocity == 0 && key != 'r')
             	printf("The velocity can't be decreased!\n");
             else if(tmp == velocity && tmp == 10)
-            	printf("The velocity can't be encreased!\n");
+            	printf("The velocity can't be increased!\n");
             else
             	velocity = tmp;
             // Print new velocity
