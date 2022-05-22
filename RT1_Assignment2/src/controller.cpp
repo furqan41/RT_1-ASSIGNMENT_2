@@ -12,7 +12,7 @@ float d_th = 1.0;
 // Initial velocity
 float velocity = 1.0;
 // Set min and max values
-float max_vel = 20;
+float max_vel = 10;
 float min_vel = 0;
 // Define velocities for the curves
 float angular_velocity = 1.5;
