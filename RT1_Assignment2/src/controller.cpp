@@ -24,12 +24,12 @@ bool serviceCallback (second_assignment::Service::Request &req, second_assignmen
 	// Read actual velocity
 	if(req.command == 'w' && velocity < max_vel)
 	{
-		// Encrease velocity if velocity isn't maximal
+		// Increase velocity if velocity isn't maximal
 		velocity += 1.0;
 	}
 	else if(req.command == 's' && velocity > min_vel)
 	{
-		// Encrease velocity if velocity isn't minimal
+		// Increase velocity if velocity isn't minimal
 		velocity -= 1.0;
 	}
 	else if(req.command == 'r')
