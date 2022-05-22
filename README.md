@@ -132,7 +132,7 @@ This function also creates the server's response to the client's request; in par
 
 ## Interface
 This  node represent the iterface of the project to user
- it communicates with both the nodes, server and controller. It get the input by the terminal and sends a request to the server, which will provide a response still to the UI node
+ it communicates with both the nodes, server and controller. It get the input by the terminal and sends a request to the server, which will provide a response still to the Interface node
  
    char key = 'r'; // Initialize the variable key
 
